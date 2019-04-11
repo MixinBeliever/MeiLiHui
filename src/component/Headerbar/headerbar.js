@@ -15,7 +15,7 @@ class Headerbar extends React.Component{
             <header className={this.state.isFixed?style.fixed:''}>
                 <div className={style.index_head}>
                     <ul>
-                        <li><span>登录</span></li>
+                        <li><NavLink to="/login"><span>登录</span></NavLink></li>
                         <li><a href="/login"><span className="iconfont icon-sousuo"></span><strong>Alexander McQueen 全场5折起</strong></a></li>
                         <li><a href="/list"><span className="iconfont icon-icon--"></span></a></li>
                     </ul>
@@ -47,6 +47,9 @@ class Headerbar extends React.Component{
                 })
             }
         }
+    }
+    componentWillUnmount(){
+        window.onscroll = null;
     }
 }
 

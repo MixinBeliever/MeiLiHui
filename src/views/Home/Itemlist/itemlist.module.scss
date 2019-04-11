@@ -6,6 +6,11 @@ section#itemlist{
             font-size: 20px;
             line-height: .3rem;
             margin-bottom: .1rem;
+            text-align: left;
+            img{
+                width: 1.5rem;
+            }
+
         }
         ul{
             li{
@@ -26,6 +31,7 @@ section#itemlist{
                         font-weight: bold;
                         color: #ffffff;
                         margin-bottom: .03rem;
+                        text-align: left;
                     }
                     p.chineseName{
                         font-size: 14px;
@@ -39,5 +45,10 @@ section#itemlist{
                 }
             }
         }
+    }
+    :global(.am-pull-to-refresh-indicator){
+        margin-bottom: .1rem;
+        color: red;
+        text-align: center;
     }
 }
