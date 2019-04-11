@@ -23,7 +23,7 @@ class Ad extends Component {
         axios({
             url: 'http://www.mei.com/appapi/home/newZoneEntrance/v3?credential='
         }).then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             this.setState({
                 data: res.data,
             })

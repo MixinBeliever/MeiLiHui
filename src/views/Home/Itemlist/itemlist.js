@@ -75,7 +75,7 @@ class Itemlist extends Component {
   componentDidMount(){
         const hei = this.state.height ;
         fetch('http://www.mei.com/appapi/home/eventForH5?params=%7B%7D&timestamp=1554946677285&summary=bc1042242d3a54d83ae0b6d59087a5f4&platform_code=H5').then(res=>res.json()).then(res=>{
-            console.log(res)
+            //console.log(res)
             this.setState({
                 height: hei,
                 dataarr: res.lists,
