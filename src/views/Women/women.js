@@ -5,6 +5,7 @@ class Women extends Component {
   constructor(props){
     super(props)
     this.state={
+      link_url :'',
       main_image: '',
       main_title: '',
       sub_title :'',
@@ -17,7 +18,7 @@ class Women extends Component {
     return (
       <div id={style.handbag}>
           <div className={style.topHandbag}>
-            <img src={this.state.main_image} />
+            <img src={this.state.main_image} onClick={this.handelClick.bind(this,this.state.link_url)} />
               <div>
                 <p>{this.state.main_title}</p>
                 <p>{this.state.sub_title}</p>
@@ -57,11 +58,13 @@ class Women extends Component {
   }
   componentDidMount(){
       fetch('http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000001&platform_code=PLATEFORM_H5').then(res=>res.json()).then(res=>{
+        console.log(res.banners[0])
         this.setState({
           main_image:res.banners[0].main_image,
            main_title:res.banners[0].main_title,
            sub_title:res.banners[0].sub_title,
-           description:res.banners[0].description
+           description:res.banners[0].description,
+           link_url : res.banners[0].link_url
         })
 
       })
@@ -82,16 +85,12 @@ class Women extends Component {
 
       })
     }
+    handelClick(url){
 
+     window.location.href=url;
+    }
     
    
-}
-
-
-
-window.onscroll = ()=>{
-  var top = document.documentElement.scrollTop || document.body.scrollTop;
-  
 }
 
 
