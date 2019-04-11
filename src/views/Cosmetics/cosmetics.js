@@ -14,8 +14,8 @@ class Detail extends Component {
     }
     render () {
        return (
-         <div>
-              <header className={style.header}>     
+         <div  className={style.all}>
+              <header className={style.header} >     
                 <div>
                     <img src={this.state.main_image} className={style.jpg}/> 
                         <div className={style.headertext}>
@@ -28,16 +28,16 @@ class Detail extends Component {
             <ul className={style.centerUl}>
                 {
                     this.state.centerData.map(item => 
-                        <li className={style.centerLi} key={item.siloId}>
-                            <img src={item.categoryImgStr} className={style.centerImg}/>  
+                        <li className={style.centerLi} key={item.siloId} >
+                            <img src={item.categoryImgStr} className={style.centerImg} onClick={this.handleCenterLi.bind(this,item.categoryOneId)}/>  
                         </li>     
                     )
                 }
             </ul>
-            <ul className={style.mainUl}>
+            <ul className={style.mainUl} >
                 {
                     this.state.mainData.map(item => 
-                        <li className={style.mainLi}>
+                        <li className={style.mainLi} key={item.categoryId} onClick={this.handleMainLi.bind(this,item.eventId)} >
                             <div className={style.cc}></div>
                             <img src={item.imageUrl} className={style.mainImg}/> 
                             <div className={style.mainDiv}>
@@ -75,6 +75,32 @@ class Detail extends Component {
                     mainData :res.eventList
                 })   
             })
+
+        var a = 1
+        window.onscroll = () => {
+            var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
+            var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
+            var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+            if (scrollT === scrollH - clientH && a <= 3) {
+                a ++
+                fetch (`http://www.mei.com/appapi/silo/eventForH5?categoryId=cosmetics&pageIndex=${a}&timestamp=1554951070301&summary=0d07067513d02b7e39f934a9ca88d376&platform_code=H5`).then(
+                (res)=>res.json()).then((res)=>{
+                    var datalist = [...this.state.mainData].concat(res.eventList)
+                    this.setState({
+                        mainData :datalist
+                    })   
+                })
+               
+            } else if (scrollT < scrollH - clientH) {
+                
+            }
+       }
+    }
+    handleMainLi (id) {
+        console.log(id)
+    }
+    handleCenterLi (id) {
+        console.log(id)
     }
 }
 export default Detail
