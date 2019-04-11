@@ -13,7 +13,7 @@ import Cosmetics from '../views/Cosmetics/cosmetics'
 import Lifestyle from '../views/Lifestyle/lifestyle'
 import Kids from '../views/Kids/kids'
 import Upcoming from '../views/Upcoming/upcoming'
-
+import FlmDetail from '../views/FlmDetail/flmdetail'
 
 import Login from '../views/Login/login'
 import Loginaccount from '../views/Login/Loginaccount/loginaccount'
@@ -35,7 +35,7 @@ const routes = (
                 <Route path="/lifestyle" component={Lifestyle}></Route>
                 <Route path="/kids" component={Kids}></Route>
                 <Route path="/upcoming" component={Upcoming}></Route>
-
+                <Route path="/flmdetail/:id" component={FlmDetail} exact></Route>
                 <Route path="/login" render={()=>
                     <Login>
                         <Switch>
