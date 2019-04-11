@@ -82,6 +82,16 @@ class Women extends Component {
 
       })
     }
+
+    
+   
+}
+
+
+
+window.onscroll = ()=>{
+  var top = document.documentElement.scrollTop || document.body.scrollTop;
+  
 }
 
 
