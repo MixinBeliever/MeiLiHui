@@ -37,11 +37,11 @@ class Headerbar extends React.Component{
     }
     componentDidMount(){
         window.onscroll = ()=>{
-            if(document.documentElement.scrollTop || document.body.scrollTop > 0 ){
+            if(document.documentElement.scrollTop || document.body.scrollTop > 0 ){            
                 this.setState({
                     isFixed: true,
                 })
-            }else{
+            }else{              
                 this.setState({
                     isFixed: false,
                 })
