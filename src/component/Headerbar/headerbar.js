@@ -4,19 +4,25 @@ import { NavLink } from 'react-router-dom'
 
 
 class Headerbar extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            isFixed: false,
+        }
+    }
     render(){
         return (
-            <header>
+            <header className={this.state.isFixed?style.fixed:''}>
                 <div className={style.index_head}>
                     <ul>
                         <li><span>登录</span></li>
                         <li><a href="/login"><span className="iconfont icon-sousuo"></span><strong>Alexander McQueen 全场5折起</strong></a></li>
-                        <li><a href="/list"><span class="iconfont icon-icon--"></span></a></li>
+                        <li><a href="/list"><span className="iconfont icon-icon--"></span></a></li>
                     </ul>
                 </div>
                 <div className={style.index_nav}>
                     <ul>
-                        <li><NavLink to="/index" activeClassName={style.active}>推荐</NavLink></li>
+                        <li><NavLink to="/home" activeClassName={style.active}>推荐</NavLink></li>
                         <li><NavLink to="/silo" activeClassName={style.active}>海外</NavLink></li>
                         <li><NavLink to="/women" activeClassName={style.active}>女士</NavLink></li>
                         <li><NavLink to="/men" activeClassName={style.active}>男士</NavLink></li>
@@ -28,6 +34,21 @@ class Headerbar extends React.Component{
                 </div>
             </header>
         )
+    }
+    componentDidMount(){
+        window.onscroll = ()=>{
+            if(document.documentElement.scrollTop || document.body.scrollTop > 0 ){
+                console.log('固定')
+                this.setState({
+                    isFixed: true,
+                })
+            }else{
+                console.log('不固定')
+                this.setState({
+                    isFixed: false,
+                })
+            }
+        }
     }
 }
 

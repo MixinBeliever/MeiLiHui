@@ -1,0 +1,53 @@
+div#everydaynews{
+    padding: .15rem;
+    ul{
+
+        display: flex;
+        li{
+            //background: #f7f7f7;
+            position: relative;
+            padding: .1rem 0 .1rem;
+            margin-right: .05rem;
+            h3{
+                margin-left: .08rem;
+                font-weight: 600;
+                color: #333;
+                span{
+                    margin-left: .05rem;
+                    font-size: 14px;
+                    font-weight: 100;
+                    color: #333;
+                }
+            }
+            div.imgarea{
+                display: flex;
+                div{
+                    text-align: center;
+                    img{
+                        width: 100%;
+                    }
+                    p{
+
+                    }
+                }
+            }
+        }
+        li:nth-of-type(1){
+            span.tag{
+                border: 1px solid #333;
+
+            }
+        }
+        li::after{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            top: 0;
+            opacity: .05;
+            pointer-events:none;
+            border-radius: .05rem;
+        }
+    }
+}

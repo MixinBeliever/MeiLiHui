@@ -1,0 +1,23 @@
+.my_banner{
+    position: relative;
+    img.main_img{
+        width: 100%;
+    }
+    .title_pos{
+        height: .8rem;
+        width: 100%;
+        position: absolute;
+        bottom: .3rem;
+        text-align: center;
+        h3.main_title{
+            font-weight: bolder;
+            color: #ffffff;
+            font-size: 30px;
+            margin-bottom: .05rem;
+        }
+        span.sub_title{
+            color: #ffffff;
+        }
+    }
+}
+
