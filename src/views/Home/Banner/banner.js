@@ -8,7 +8,7 @@ class Banner extends React.Component{
     render(){
         return (
             <div>
-                {console.log(this.props.banners)}
+                {/* {console.log(this.props.banners)} */}
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         {

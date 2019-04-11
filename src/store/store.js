@@ -1,18 +1,9 @@
 import { combineReducers, createStore } from 'redux'
+import headerbarReducer from './reducers/headerbarReducer'
 
-var reducer = (prevState=true,action={})=>{
-    var { type , payload } = action;
-    console.log(action)
-    switch(type){
-        case 'hideHeaderbar':
-            return payload;
-        case 'showHeaderbar':
-            return payload;
-        default:
-            return prevState;    
-    }
-    return prevState
-}
+var reducer = combineReducers({
+    headerbarReducer,
+})
 
 const store = createStore(reducer,)
 

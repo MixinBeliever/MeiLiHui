@@ -24,7 +24,7 @@ class Everydaynews extends Component {
                                 <div className={style.imgarea}>
                                     {
                                         item.products.map((data,index)=>
-                                            <div key={data.productId}>
+                                            <div key={data.glsCode}>
                                                 <img src={data.picUrl} alt=""/>
                                                 <span className={style.tag}>{data.tag}</span>
                                             </div>
