@@ -1,5 +1,6 @@
 import React , {Component} from "react"
 import style from './cosmetics.module.scss'
+import GoTop from './../../component/GoTop/GoTop';
 class Detail extends Component {
     constructor (props) {
         super (props)
@@ -48,8 +49,10 @@ class Detail extends Component {
                         </li>     
                     )
                 }
-            </ul>
+            </ul> 
+            <GoTop></GoTop>
          </div>
+        
        )
     }
     componentDidMount () {
@@ -77,10 +80,10 @@ class Detail extends Component {
             })
 
         var a = 1
-        window.onscroll = () => {
-            var scrollT = document.documentElement.scrollTop || document.body.scrollTop; //滚动条的垂直偏移
-            var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; //元素的整体高度
-            var clientH = document.documentElement.clientHeight || document.body.clientHeight; //元素的可见高度
+        document.onscroll = () => {
+            var scrollT = document.documentElement.scrollTop || document.body.scrollTop; 
+            var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight; 
+            var clientH = document.documentElement.clientHeight || document.body.clientHeight; 
             if (scrollT === scrollH - clientH && a <= 3) {
                 a ++
                 fetch (`http://www.mei.com/appapi/silo/eventForH5?categoryId=cosmetics&pageIndex=${a}&timestamp=1554951070301&summary=0d07067513d02b7e39f934a9ca88d376&platform_code=H5`).then(
@@ -94,13 +97,19 @@ class Detail extends Component {
             } else if (scrollT < scrollH - clientH) {
                 
             }
+            console.log(scrollT)
        }
     }
     handleMainLi (id) {
         console.log(id)
+        this.props.history.push(`/flmdetail2/${id}`)
     }
     handleCenterLi (id) {
         console.log(id)
+    }
+    componentWillUnmount () {
+        console.log('cosme结束')
+        document.onscroll = null
     }
 }
 export default Detail

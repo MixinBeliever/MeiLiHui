@@ -2,6 +2,7 @@ import React , {Component} from "react"
 import style from './lifestyle.module.scss'
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
+import GoTop from './../../component/GoTop/GoTop';
 class Lifestyle extends Component {
     constructor (props) {
         super (props)
@@ -49,7 +50,7 @@ class Lifestyle extends Component {
             <ul className={style.mainUl}>
                 {
                     this.state.mainData.map(item => 
-                        <li className={style.mainLi}>
+                        <li className={style.mainLi} onClick={this.handleMainLi.bind(this,item.eventId)}>
                             <div className={style.cc}></div>
                             <img src={item.imageUrl} className={style.mainImg}/> 
                             <div className={style.mainDiv}>
@@ -61,6 +62,7 @@ class Lifestyle extends Component {
                     )
                 }
             </ul>
+            <GoTop></GoTop>
          </div>
        )
     }
@@ -99,6 +101,10 @@ class Lifestyle extends Component {
                 el: '.swiper-pagination',
             }
         });
+    }
+    handleMainLi (id) {
+        console.log(id)
+        this.props.history.push(`/flmdetail2/${id}`)
     }
     
 }
