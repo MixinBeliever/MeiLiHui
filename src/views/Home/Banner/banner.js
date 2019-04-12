@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, } from 'react-router-dom';
 
 import Swiper from 'swiper'
 //import 'swiper/dist/css/swiper/.css'
@@ -14,13 +15,15 @@ class Banner extends React.Component{
                         {
                             this.props.banners.map((item,index)=>
                                 <div class="swiper-slide" data-hash="slide1" key={item.id}>
-                                    <div className="my_banner">
-                                        <img className="main_img" src={item.main_image} alt=""/>
-                                        <div className="title_pos">
-                                            <h3 className="main_title">{item.main_title}</h3>
-                                            <span className="sub_title">{item.sub_title}</span>
+                                    <Link to="/brand">
+                                        <div className="my_banner">
+                                            <img className="main_img" src={item.main_image} alt=""/>
+                                            <div className="title_pos">
+                                                <h3 className="main_title">{item.main_title}</h3>
+                                                <span className="sub_title">{item.sub_title}</span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             )
                         }

@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Redirect, Switch, } from 'react-router-
 import App from '../App'
 
 import Home from '../views/Home/home'
+import Brand from '../views/Brand/brand'
+
 import Silo from '../views/Silo/silo'
 import Women from '../views/Women/women'
 import Men from '../views/Men/men'
@@ -22,12 +24,16 @@ import Loginmobile from '../views/Login/Loginmobile/loginmobile'
 
 
 
+
 const routes = (
 
     <Router>
         <App>
             <Switch>
                 <Route path="/home" component={Home}></Route>
+                <Route path="/brand" component={Brand}></Route>
+
+
                 <Route path="/silo" component={Silo}></Route>
                 <Route path="/women" component={Women}></Route>
                 <Route path="/men" component={Men}></Route>
@@ -35,6 +41,7 @@ const routes = (
                 <Route path="/lifestyle" component={Lifestyle}></Route>
                 <Route path="/kids" component={Kids}></Route>
                 <Route path="/upcoming" component={Upcoming}></Route>
+                
 
                 <Route path="/login" render={()=>
                     <Login>

@@ -24,6 +24,7 @@ class Home extends React.Component{
     componentDidMount(){
 
         fetch('http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000008&platform_code=PLATEFORM_H5').then(res=>res.json()).then(res=>{
+            console.log(res)
             this.setState({
                 bannerlist: res.banners,
             })
