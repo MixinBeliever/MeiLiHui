@@ -7,35 +7,39 @@
         .flm_fh{
             position: absolute;
             left:0.1rem;
-            top: 0.2rem;
-            height: 0.5rem;  
+            // top: 0.2rem;
+            height: 0.5rem; 
+            line-height: 0.5rem; 
+            color:red;
                 span.iconfont{
                     display:inline-block;
-                    height: 0.5rem;
+                    height: 100%;
                     font-size: 0.15rem;
-                    color:red;
                 }
             
 
         }
         .flm_topzi{
+            
             position: absolute;
-            left: 20%;
-            top: 0.2rem;
+            left: 50%;
+            top : 50%;
+            transform: translate(-50%,-50%);
             font-size: 0.15rem;
-            // line-height: 0.5rem;
+            width: 100%;
             font-weight: 900;
+            text-align: center;
         }
         .flm_zy{
             position: absolute;
             right:0.1rem;
-            top:0.2rem;
+            // top:0.2rem;
             height: 0.5rem;
             color: blue;
+            line-height: 0.5rem;
               span.iconfont{
                     display:inline-block;
-
-                    height: 0.5rem;
+                    height: 100%;
                     font-size: 0.15rem;
                     
                 }  

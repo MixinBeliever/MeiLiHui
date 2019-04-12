@@ -29,7 +29,7 @@ class FlmDetail2 extends Component{
            console.log(res.eventName)
           this.setState({
               topList : res.eventName,
-              topList2: res.promotions
+              topList2: res.promotions.info
           })
         })        
     }
