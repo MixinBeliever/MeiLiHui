@@ -1,7 +1,8 @@
 import React,{Component}from 'react';
 import './flmdetail2.scss';
 import store from '../../store/store'
-import { showHeaderbar, hideHeaderbar } from '../Login/actionCreator'
+import { showHeaderbar, hideHeaderbar } from '../ActionDispatch/actionCreator'
+import DetalsHead from '../../component/DetalsHead/detalshead'
 
 class FlmDetail2 extends Component{
 
@@ -27,7 +28,7 @@ class FlmDetail2 extends Component{
         return(
             <div className="flm_qb">
                 <div className="flm_headle">
-                
+                <DetalsHead></DetalsHead>
                 </div>
             {
                 this.state.detailInfo.map(item=>

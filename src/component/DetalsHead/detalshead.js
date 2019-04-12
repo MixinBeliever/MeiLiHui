@@ -12,10 +12,10 @@ class DetalsHead extends Component{
                  <a className="flm_zy" href="#"></a>   
                </div>
                <ul className="flm_bootomzi">
-                 <li><a>人气</a></li>
-                 <li><a>折扣</a></li>
-                 <li><a>价格<span></span></a></li>
-                 <li><a>筛选</a></li>
+                 <li className="flm_r"><a>人气</a></li>
+                 <li className="flm_z"><a>折扣</a></li>
+                 <li className="flm_j"><a>价格<span></span></a></li>
+                 <li className="flm_s"><a>筛选</a></li>
                </ul>
             
             </div>

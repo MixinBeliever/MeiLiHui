@@ -1,0 +1,49 @@
+.flm_heads{
+    height: 1rem;
+    .flm_bp{
+        height:0.5rem;
+        position: relative;
+        .flm_fh{
+
+        }
+        .flm_topzi{
+            position: absolute;
+            left: 40%;
+            font-size: 0.2rem;
+            line-height: 0.5rem;
+            font-weight: 900;
+        }
+        .flm_zy{
+
+        }
+
+    }
+    .flm_bootomzi{
+        line-height: 0.5rem;
+        font-size: 0.15rem;
+        .flm_r{
+           float: left;
+ 
+           margin-left:0.25rem;
+        }
+        .flm_z{
+            float: left;
+            margin-left:0.5rem;
+            a{
+                color: #cfcfcf;
+            }
+        }
+        .flm_j{
+            float: left;
+            margin-left:0.75rem;
+           a{
+                color: #cfcfcf;
+           }
+        }
+        .flm_s{
+            float: right;
+            margin-right:0.25rem;
+        }
+    }
+
+}

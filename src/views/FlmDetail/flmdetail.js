@@ -1,7 +1,7 @@
 import React,{Component}from 'react';
 import './flmdetail.scss';
 import store from '../../store/store';
-import { showHeaderbar, hideHeaderbar } from '../Login/actionCreator';
+import { showHeaderbar, hideHeaderbar } from '../ActionDispatch/actionCreator';
 import DetalsHead from '../../component/DetalsHead/detalshead'
 
 class FlmDetail extends Component{
@@ -32,9 +32,9 @@ class FlmDetail extends Component{
                 
                 </div>
             {
-                this.state.detailInfo.map(item=>
-                        <div className="flm_nr">
-                        <img src={item.imageUrl}></img>
+                this.state.detailInfo.map((item,index)=>
+                        <div className="flm_nr" key={index}>
+                        <img src={item.imageUrl} alt="" />
                         {
                             item.tagListDto.length !==0 ?
                                 <span className="flm_tj">{item.tagListDto[0].tag}</span>
