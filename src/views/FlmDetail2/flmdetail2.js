@@ -1,10 +1,9 @@
 import React,{Component}from 'react';
-import './flmdetail.scss';
-import store from '../../store/store';
-import { showHeaderbar, hideHeaderbar } from '../Login/actionCreator';
-import DetalsHead from '../../component/DetalsHead/detalshead'
+import './flmdetail2.scss';
+import store from '../../store/store'
+import { showHeaderbar, hideHeaderbar } from '../Login/actionCreator'
 
-class FlmDetail extends Component{
+class FlmDetail2 extends Component{
 
     constructor(props){
         super(props);
@@ -27,7 +26,6 @@ class FlmDetail extends Component{
     render(){
         return(
             <div className="flm_qb">
-                 <DetalsHead></DetalsHead>
                 <div className="flm_headle">
                 
                 </div>
@@ -61,4 +59,4 @@ class FlmDetail extends Component{
         store.dispatch(showHeaderbar())
     }
 }
-export default FlmDetail;
+export default FlmDetail2;
