@@ -1,0 +1,42 @@
+div#barnd_head{
+    height: .5rem;
+    position: absolute;
+    width: 100%;
+    ul{
+        height: 100%;
+        display: flex;
+        li{
+
+        }
+        li:nth-of-type(1){
+            width: .5rem;
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                font-size: 25px;
+                color: #ffffff;
+                font-weight: bold;
+            }
+        }
+        li:nth-of-type(2){
+            flex: 1;
+        }
+        li:nth-of-type(3){
+            width: .5rem;
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                font-size: 25px;
+                color: #ffffff;
+                font-weight: bold;
+            }
+        }
+
+    }
+}

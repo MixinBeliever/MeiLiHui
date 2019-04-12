@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from '../../../store/store';
-import { showHeaderbar, hideHeaderbar } from '../actionCreator'
+import { showHeaderbar, hideHeaderbar } from '../../ActionDispatch/actionCreator'
 import style from './loginaccount.module.scss'
 class Loginaccount extends Component {
   render() {
@@ -8,7 +8,7 @@ class Loginaccount extends Component {
         <div>
             <div id={style.login_page}>
                 <div className={style.close}>
-                    <a href="">X</a>
+                    <a href="javascript:;">X</a>
                 </div>
                 <h3 className={style.info}>
                     账号密码登录
