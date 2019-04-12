@@ -1,15 +1,18 @@
 import React,{Component}from 'react';
 import './detalshead.scss';
 
-
 class DetalsHead extends Component{
     render(){
         return(
             <div className="flm_heads">
                <div className="flm_bp">
-                 <a className="flm_fh" href="#"></a>
-                 <span className="flm_topzi">餐桌配件精选</span>
-                 <a className="flm_zy" href="#"></a>   
+                 <a className="flm_fh" href="http://localhost:3000/upcoming" >
+                    <span class="iconfont icon-zuojiantou">返回</span>
+                 </a>
+                 <span className="flm_topzi">{this.props.topList}</span>
+                 <a className="flm_zy" href="http://localhost:3000/home">
+                  <span class="iconfont icon-more">首页</span>
+                 </a>   
                </div>
                <ul className="flm_bootomzi">
                  <li className="flm_r"><a>人气</a></li>
@@ -17,8 +20,18 @@ class DetalsHead extends Component{
                  <li className="flm_j"><a>价格<span></span></a></li>
                  <li className="flm_s"><a>筛选</a></li>
                </ul>
-            
+               {
+                  this.props.topList2? 
+                  <div className="flm_mz">
+                      <span className="flm_mz2">满折</span>
+                      {this.props.topList2.info}
+                  </div>
+                  : null
+
+               }
+              
             </div>
+           
         )
     }
 } 

@@ -11,6 +11,8 @@ class FlmDetail2 extends Component{
         this.state ={
             detailInfo: [],
             isShow:true,
+             topList : '',
+             topList2:[]
         };
     }
 
@@ -23,12 +25,19 @@ class FlmDetail2 extends Component{
              detailInfo: res.products
          })
         })
+        fetch(`http://www.mei.com/appapi/event/product/v3?pageIndex=1&categoryId=${this.props.match.params.id}&key=&sort=&timestamp=1555069270047&summary=c4e49d646a878886ddbc473bf932b47d&platform_code=H5`).then(res=>res.json()).then(res=>{
+           console.log(res.eventName)
+          this.setState({
+              topList : res.eventName,
+              topList2: res.promotions
+          })
+        })        
     }
     render(){
         return(
             <div className="flm_qb">
                 <div className="flm_headle">
-                <DetalsHead></DetalsHead>
+                <DetalsHead topList={this.state.topList} topList2={this.state.topList2}></DetalsHead>
                 </div>
             {
                 this.state.detailInfo.map(item=>
