@@ -42,7 +42,7 @@ class Men extends Component {
           
           {
             this.state.datalist.map(item=>
-                <NavLink className={style.allClothing}>
+                <NavLink className={style.allClothing} onClick={this.handleMainLi.bind(this,item.eventId)}>
                   <img src={item.imageUrl} />
                   <div>
                     <p>{item.englishName}</p>
@@ -84,7 +84,10 @@ class Men extends Component {
       })
 
     }
-
+    handleMainLi (id) {
+      console.log(id)
+      this.props.history.push(`/flmdetail2/${id}`)
+  }
 
 
 }

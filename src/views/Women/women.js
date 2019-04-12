@@ -18,7 +18,7 @@ class Women extends Component {
     return (
       <div id={style.handbag}>
           <div className={style.topHandbag}>
-            <img src={this.state.main_image} onClick={this.handelClick.bind(this,this.state.link_url)} />
+            <img src={this.state.main_image} />
               <div>
                 <p>{this.state.main_title}</p>
                 <p>{this.state.sub_title}</p>
@@ -42,7 +42,7 @@ class Women extends Component {
           
           {
             this.state.datalist.map(item=>
-                <NavLink className={style.allClothing}>
+                <NavLink className={style.allClothing} onClick={this.handleMainLi.bind(this,item.eventId)}>
                   <img src={item.imageUrl} />
                   <div>
                     <p>{item.englishName}</p>
@@ -85,10 +85,10 @@ class Women extends Component {
 
       })
     }
-    handelClick(url){
-
-     window.location.href=url;
-    }
+    handleMainLi (id) {
+      console.log(id)
+      this.props.history.push(`/flmdetail2/${id}`)
+  }
     
    
 }
