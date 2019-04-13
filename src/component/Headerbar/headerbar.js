@@ -50,6 +50,7 @@ class Headerbar extends React.Component{
     }
     componentWillUnmount(){
         window.onscroll = null;
+        console.log('headerbar销毁了')
     }
 }
 

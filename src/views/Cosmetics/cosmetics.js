@@ -102,6 +102,9 @@ class Detail extends Component {
     handleCenterLi (id) {
         console.log(id)
     }
+    componentWillUnmount(){
+        window.onscroll = null;
+    }
 }
 export default Detail
 

@@ -3,63 +3,90 @@ import store from '../../store/store'
 import { hideHeaderbar,showHeaderbar } from '../ActionDispatch/actionCreator'
 import Brandheadbar from './Brandheadbar/brandheadbar';
 import './brand.scss'
+import Brandscroll from './Brandscroll/brandscroll';
 class Brand extends Component {
     constructor(props){
         super(props)
         this.state = {
-            bannerinfo: {}   
+            bannerinfo: null,
+            p_more: false,
+            isFixed:false,
         }
     }
     render() {
         return (
         <div>
-            {typeof this.state.bannerinfo.brandName}
-            <Brandheadbar bannerinfo={this.state.bannerinfo}></Brandheadbar>
+            <Brandheadbar {...this.props} isFixed={this.state.isFixed}></Brandheadbar>
             {
-                this.state.bannerinfo?
+                (this.state.bannerinfo !== null)?
+                
                     <div id="banner_head">
                         <div className="banner_top">
-                            <img src={this.state.bannerinfo.brandPageImage}/>
-                            <p>{this.Toupper()}</p>
+                            <img src={this.state.bannerinfo.body.brandDetail.brandPageImage} alt=""/>
+                            <p>{this.state.bannerinfo.body.brandDetail.brandName}</p>
+                            <a href="/" className="a_follow">+关注</a>
                         </div>
-                        <div></div>
+                        <div className="banner_dowm">
+                            <h3>在售商品<strong>{this.state.onSaleTotal}</strong>件 上新<span>{this.state.newTotal}</span>件</h3>
+                            <p className={this.state.p_more?'p_more':'close'}>{this.state.bannerinfo.body.brandDetail.brandStoryText}</p>
+                            {
+                                this.state.p_more?
+                                <div><span className="more" onClick={()=>{
+                                    this.setState({
+                                        p_more: false,
+                                    })
+                                }}>收起</span></div>
+                                :
+                                <div><span className="more" onClick={()=>{
+                                    this.setState({
+                                        p_more: true,
+                                    })
+                                }}>更多</span></div>
+                                
+                            }
+                           
+                        </div>
                     </div>
-                :
-                null
+                :null
             }
-            
-            <div>
-
-            </div>
+            <Brandscroll ProductInfo={'精选上新'} brandscroll={this.state.bannerinfo?this.state.bannerinfo.body.newProductTop10:[]} ></Brandscroll> 
+            <Brandscroll ProductInfo={'人气热销'} brandscroll={this.state.bannerinfo?this.state.bannerinfo.body.hotProductTop10:[]} ></Brandscroll> 
         </div>
         )
     }  
-    //在componentWillReceiveProps中更好传递属性
-    componentDidUpdate(){
-        console.log('7777777'+this.state.bannerinfo.brandName)
-        this.setState()
+    //在componentWillReceiveProps中更好传递属性  
+    componentWillMount(){
+       
     }
 
-    Toupper(str){
-        
-        // if(this.state.bannerinfo !== null){
-        //     console.log(this)
-        //     return this.state.bannerinfo.brandName.toUpperCase()
-        // }else{
-            return ''
-        //}
-        
-    } 
+
     componentDidMount(){
         //隐藏headerbar
         store.dispatch(hideHeaderbar())
-
-        fetch('http://www.mei.com/appapi/brand/viewCms/v3?logoId=3616200100000000853').then(res=>res.json()).then(res=>{
-            console.log(res.body)
+        fetch('http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000000853').then(res=>res.json()).then(res=>{
+            console.log(res)
+            
             this.setState({
-                bannerinfo: res.body.brandDetail,
+                bannerinfo: res,
+                onSaleTotal: res.body.onSaleTotal,
+                newTotal: res.body.newTotal,
             })
         })
+        window.onscroll = ()=>{
+            console.log('aa')
+            if((document.documentElement.scrollTop || document.body.scrollTop) > 50){
+                console.log('固定')
+                this.setState({
+                    isFixed: true,
+                })
+            }else{
+                console.log('不固定')
+                this.setState({
+                    isFixed: false,
+                })
+            }
+        }
+        console.log('wan')
     }
     componentWillUnmount(){
         //显示headerbar
