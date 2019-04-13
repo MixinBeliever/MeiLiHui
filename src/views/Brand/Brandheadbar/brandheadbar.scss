@@ -24,6 +24,12 @@ div.barnd_head{
         }
         li:nth-of-type(2){
             flex: 1;
+            text-align: center;
+            line-height: .5rem;
+            span{
+                font-weight: 600;
+                font-size: 14px;
+            }
         }
         li:nth-of-type(3){
             width: .5rem;
@@ -39,5 +45,19 @@ div.barnd_head{
             }
         }
 
+    }
+}
+div#barnd_head_fixed{
+    position: fixed;
+    background: #ffffff;
+    width: 100%;
+    z-index: 10;
+    height: .5rem;
+    ul{
+        li{
+            span{
+                color: #333;
+            }
+        }
     }
 }

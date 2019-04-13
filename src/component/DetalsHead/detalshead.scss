@@ -1,0 +1,96 @@
+.flm_heads{
+    height: 1.5rem;
+    .flm_bp{
+        height:0.5rem;
+        position: relative;
+    
+        .flm_fh{
+            position: absolute;
+            left:0.1rem;
+            // top: 0.2rem;
+            height: 0.5rem; 
+            line-height: 0.5rem; 
+            color:red;
+                span.iconfont{
+                    display:inline-block;
+                    height: 100%;
+                    font-size: 0.15rem;
+                }
+            
+
+        }
+        .flm_topzi{
+            
+            position: absolute;
+            left: 50%;
+            top : 50%;
+            transform: translate(-50%,-50%);
+            font-size: 0.15rem;
+            width: 100%;
+            font-weight: 900;
+            text-align: center;
+        }
+        .flm_zy{
+            position: absolute;
+            right:0.1rem;
+            // top:0.2rem;
+            height: 0.5rem;
+            color: blue;
+            line-height: 0.5rem;
+              span.iconfont{
+                    display:inline-block;
+                    height: 100%;
+                    font-size: 0.15rem;
+                    
+                }  
+        }
+
+    }
+    .flm_bootomzi{
+        height: 0.5rem;
+        line-height: 0.5rem;
+        font-size: 0.15rem;
+        .flm_r{
+           float: left;
+ 
+           margin-left:0.25rem;
+        }
+        .flm_z{
+            float: left;
+            margin-left:0.5rem;
+            a{
+                color: #cfcfcf;
+            }
+        }
+        .flm_j{
+            float: left;
+            margin-left:0.75rem;
+           a{
+                color: #cfcfcf;
+           }
+        }
+        .flm_s{
+            
+            float: right;
+            margin-right:0.25rem;
+           
+        }
+    }
+    .flm_mz{
+        height: 0.5rem;
+        font-size: 0.14rem;
+        font-weight: 900;
+        padding-left: 0.5rem;
+        position: relative;
+        .flm_mz2{
+            position: absolute;
+            left: 0.15rem;
+            height: 0.15rem;
+            width: 0.28rem;
+            color: red;
+            border: 1px solid red;
+            font-size: 0.12rem;
+        }
+    }
+
+}

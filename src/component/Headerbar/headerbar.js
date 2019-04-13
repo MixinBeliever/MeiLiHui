@@ -8,6 +8,8 @@ class Headerbar extends React.Component{
         super()
         this.state = {
             isFixed: false,
+            isshow : false,
+            dist : ''
         }
     }
     render(){
@@ -32,11 +34,28 @@ class Headerbar extends React.Component{
                         <li><NavLink to="/upcoming" activeClassName={style.active}>即将上新</NavLink></li>
                     </ul>
                 </div>
+               { this.state.isshow ?
+                <div className={style.gotop} onClick={this.gotop.bind(this)}>top</div>
+                : null}
             </header>
         )
     }
     componentDidMount(){
         window.onscroll = ()=>{
+            console.log(666)
+           var dist = document.documentElement.scrollTop || document.body.scrollTop
+           this.setState({
+               dist : dist
+           })
+           if(dist > 500){
+            this.setState({
+               isshow : true
+            })
+           }else{
+            this.setState({
+                isshow : false
+             }) 
+           }
             if(document.documentElement.scrollTop || document.body.scrollTop > 0 ){            
                 this.setState({
                     isFixed: true,
@@ -46,7 +65,12 @@ class Headerbar extends React.Component{
                     isFixed: false,
                 })
             }
+
         }
+        
+    }
+    gotop () {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
     componentWillUnmount(){
         window.onscroll = null;

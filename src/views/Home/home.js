@@ -14,7 +14,7 @@ class Home extends React.Component{
     render(){
         return (
             <div>
-                <Banner banners={this.state.bannerlist}></Banner>
+                <Banner banners={this.state.bannerlist} {...this.props}></Banner>
                 <Ad></Ad>
                 <Everydaynews></Everydaynews>
                 <Itemlist></Itemlist>

@@ -16,6 +16,7 @@ import Lifestyle from '../views/Lifestyle/lifestyle'
 import Kids from '../views/Kids/kids'
 import Upcoming from '../views/Upcoming/upcoming'
 import FlmDetail from '../views/FlmDetail/flmdetail'
+import FlmDetail2 from '../views/FlmDetail2/flmdetail2'
 
 import Login from '../views/Login/login'
 import Loginaccount from '../views/Login/Loginaccount/loginaccount'
@@ -31,7 +32,7 @@ const routes = (
         <App>
             <Switch>
                 <Route path="/home" component={Home}></Route>
-                <Route path="/brand" component={Brand}></Route>
+                <Route path="/brand/:brandId" component={Brand} exact></Route>
 
 
                 <Route path="/silo" component={Silo}></Route>
@@ -42,6 +43,7 @@ const routes = (
                 <Route path="/kids" component={Kids}></Route>
                 <Route path="/upcoming" component={Upcoming}></Route>
                 <Route path="/flmdetail/:id" component={FlmDetail} exact></Route>
+                <Route path="/flmdetail2/:id" component={FlmDetail2} exact></Route>
                 <Route path="/login" render={()=>
                     <Login>
                         <Switch>

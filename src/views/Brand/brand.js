@@ -16,12 +16,12 @@ class Brand extends Component {
     render() {
         return (
         <div>
-            <Brandheadbar {...this.props} isFixed={this.state.isFixed}></Brandheadbar>
+            <Brandheadbar brandName={this.state.bannerinfo!==null?this.state.bannerinfo.body.brandDetail.brandName:''} {...this.props} isFixed={this.state.isFixed} ref="myBrandheadbar"></Brandheadbar>
             {
                 (this.state.bannerinfo !== null)?
                 
                     <div id="banner_head">
-                        <div className="banner_top">
+                        <div className="banner_top" ref="mybanner">
                             <img src={this.state.bannerinfo.body.brandDetail.brandPageImage} alt=""/>
                             <p>{this.state.bannerinfo.body.brandDetail.brandName}</p>
                             <a href="/" className="a_follow">+关注</a>
@@ -56,41 +56,42 @@ class Brand extends Component {
     }  
     //在componentWillReceiveProps中更好传递属性  
     componentWillMount(){
-       
     }
 
 
     componentDidMount(){
         //隐藏headerbar
         store.dispatch(hideHeaderbar())
-        fetch('http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000000853').then(res=>res.json()).then(res=>{
+
+        fetch(`http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${this.props.match.params.brandId}`).then(res=>res.json()).then(res=>{
             console.log(res)
             
             this.setState({
                 bannerinfo: res,
                 onSaleTotal: res.body.onSaleTotal,
                 newTotal: res.body.newTotal,
+            },()=>{
+                console.log(this.refs.myBrandheadbar.refs.realBrandheadbar.offsetHeight)
+                document.onscroll = ()=>{
+                    if((document.documentElement.scrollTop || document.body.scrollTop) > this.refs.mybanner.offsetHeight){
+                        console.log('固定')
+                        this.setState({
+                            isFixed: true,
+                        })
+                    }else{
+                        console.log('不固定')
+                        this.setState({
+                            isFixed: false,
+                        })
+                    }
+                }
             })
         })
-        window.onscroll = ()=>{
-            console.log('aa')
-            if((document.documentElement.scrollTop || document.body.scrollTop) > 50){
-                console.log('固定')
-                this.setState({
-                    isFixed: true,
-                })
-            }else{
-                console.log('不固定')
-                this.setState({
-                    isFixed: false,
-                })
-            }
-        }
-        console.log('wan')
     }
     componentWillUnmount(){
         //显示headerbar
         store.dispatch(showHeaderbar())
+        document.onscroll = null;
     }
 }
 
