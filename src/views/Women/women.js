@@ -18,7 +18,7 @@ class Women extends Component {
     return (
       <div id={style.handbag}>
           <div className={style.topHandbag}>
-            <img src={this.state.main_image} />
+            <img src={this.state.main_image} alt=""/>
               <div>
                 <p>{this.state.main_title}</p>
                 <p>{this.state.sub_title}</p>
@@ -30,7 +30,7 @@ class Women extends Component {
             <ul className={style.clothes}>
                 {
                   this.state.data.map(item=>
-                      <li><NavLink><img src={item.categoryImgStr} /></NavLink></li>
+                      <li><NavLink><img src={item.categoryImgStr} alt="" /></NavLink></li>
                     )
                 }
             </ul>
@@ -43,7 +43,7 @@ class Women extends Component {
           {
             this.state.datalist.map(item=>
                 <NavLink className={style.allClothing} onClick={this.handleMainLi.bind(this,item.eventId)}>
-                  <img src={item.imageUrl} />
+                  <img src={item.imageUrl}  alt=""/>
                   <div>
                     <p>{item.englishName}</p>
                     <p>{item.chineseName}</p>

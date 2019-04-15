@@ -32,7 +32,7 @@ const routes = (
         <App>
             <Switch>
                 <Route path="/home" component={Home}></Route>
-                <Route path="/brand" component={Brand}></Route>
+                <Route path="/brand/:brandId" component={Brand} exact></Route>
 
 
                 <Route path="/silo" component={Silo}></Route>

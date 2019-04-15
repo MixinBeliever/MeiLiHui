@@ -17,7 +17,7 @@ class Itemlist extends Component {
     return (
       <section id={style.itemlist}>
             <PullToRefresh
-                damping={60}
+                damping={150}
                 ref={el => this.ptr = el}
                 style={{                      //底部样式
                     height: this.state.height,

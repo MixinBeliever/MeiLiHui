@@ -42,6 +42,7 @@ class Headerbar extends React.Component{
     }
     componentDidMount(){
         window.onscroll = ()=>{
+            console.log(666)
            var dist = document.documentElement.scrollTop || document.body.scrollTop
            this.setState({
                dist : dist
@@ -73,6 +74,7 @@ class Headerbar extends React.Component{
     }
     componentWillUnmount(){
         window.onscroll = null;
+        console.log('headerbar销毁了')
     }
 }
 

@@ -1,6 +1,7 @@
 #banner_head{
     width: 100%;
     .banner_top{
+        height: 2.14rem;
         position: relative;
         img{
             width: 100%;
@@ -13,6 +14,58 @@
             position: absolute;
             bottom: .2rem;
             width: 100%;
+        }
+        a.a_follow{
+            position: absolute;
+            background: #000;
+            color: #ffffff;
+            width: .8rem;
+            height: .3rem;
+            text-align: center;
+            line-height: .3rem;
+            font-size: 14px;
+            left: 0;
+            bottom: -.15rem;
+            right: 0;
+            margin: auto;
+        }
+    }
+    .banner_dowm{
+        padding: 0 .3rem;
+        h3{
+            padding: .2rem 0;
+            font-weight: 100;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+            strong{
+                font-weight: 100;
+                color: #333;
+            }
+            span{
+
+            }
+        }
+        p.close{
+            font-size: 14px;
+            color: #666;
+            line-height: .25rem;
+            height: 1rem;
+            overflow: hidden;
+        }
+        p.p_more{
+            font-size: 14px;
+            color: #666;
+            line-height: .25rem;
+        }
+        div{
+            text-align: center;
+            span.more{  
+                display: inline-block;  
+                font-size: 14px;
+                line-height: .3rem;
+                color: #da8960;
+            }
         }
     }
 }
